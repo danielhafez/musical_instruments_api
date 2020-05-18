@@ -20,19 +20,20 @@ def get_all_instruments():
     return response
 
 
-@app.route('/posts/<int:post_id>')
-def get_post(post_id):
-    if post_id not in posts_storage:
-        abort(404)
+@app.route('/instruments/<user_name>')
+def get_instruments_by_user(user_name):
+    instruments= []
+    for i in instruments_data:
+        users = instruments_data[i]['user']
+        for num in users:
+            if num['first_name'] == user_name:
+                instruments.append(instruments_data[i])
 
-    post = posts_storage[post_id].format_to_json()
     response = app.response_class(
-        response=json.dumps(post),
+        response=json.dumps(instruments),
         status=200,
         mimetype='application/json')
     return response
-
-
 
 app.run()
 

@@ -51,7 +51,7 @@ instruments_data = {
     4: {
         'id': 4,
         'name': 'violin',
-        'user': [users[5], users[4]],
+        'user': [users[0], users[4]],
         'youtube': 'https://www.youtube.com/watch?v=w4a2ge9N31E'
     }
 }
